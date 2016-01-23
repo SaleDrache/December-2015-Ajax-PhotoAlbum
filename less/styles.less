@@ -1,0 +1,238 @@
+
+/* ------------ CSS/LESS RESET ---------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	position: relative;
+}
+
+/* ------------ VARIABLES ---------------*/
+
+@mobile: 403px;
+@tablet: 768px;
+@laptop: 992px;
+@bigscreen: 1200px;
+
+@body_background_clr: #e1e3e4;			/* gray */
+@container_clr: white;
+@hover_clr: #99bbff;					/* blue */
+
+/* ------------ MIXIN ---------------*/
+
+/* color is changing for users and albums, when hovered and clicked */
+.HoverSelect () {
+	&:hover {
+		background-color: @hover_clr;
+	}
+	&.clicked {
+		background-color: darken(@hover_clr, 15%);
+	}
+}
+
+
+/* ------------ FONT SIZING ---------------*/
+
+html	{	
+	@media screen and (max-width: @laptop) {
+		font-size: 14px;
+	}
+	@media screen and (max-width: @tablet) {
+		font-size: 12px;
+	}
+	@media screen and (max-width: @mobile) {
+		font-size: 10px;
+	}
+}
+
+
+
+
+/* ------------ CONTENT ---------------*/
+
+body {
+	background-color: @body_background_clr;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2.5rem;				/* 40/16px */
+	margin-top: 25px;
+	margin-bottom: 15px;
+	@media screen and (max-width: @tablet) {
+		margin-left: 20px;
+	}
+}
+
+h2 {
+	font-weight: bold;
+	line-height: 1.625rem;		/* 26/16px */
+	font-size: 2rem;			/* 32/16px */
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+p {
+	line-height:	1.625rem;		/* 26/16px */
+}
+
+#main {
+	padding: 0;
+	height: 100vh;					/* 657px  */
+}
+.photo_app {
+	background-color: @container_clr;
+	padding-top: 0;
+	height: 83.71vh;				/* 550/657px */
+}
+
+.users_error, .albums_error, .photos_error {
+	color: red;
+	display: none;
+	margin: 5px 0 0 5px;
+}
+
+.users_loading, .albums_loading, .photos_loading {
+	display: none;
+	img {
+		height: 90px;
+		width: 90px;
+	}
+}
+
+.albums_loading {
+	position: absolute;
+}
+
+.users {
+	height: 83.71vh;				/* 550/657px */
+}
+
+.users_content {
+	overflow: auto;
+	max-height: 66.971vh;			/* 440/657px */  
+	li {
+		padding: 15px;
+		cursor: pointer;
+		border: 2px solid gray;
+		border-top: none;
+		background-color: @body_background_clr;
+		&:first-child {
+			border-top: 2px solid gray;
+		}
+		.HoverSelect;							/* mixin */
+	}
+
+}
+
+
+.album_content {
+	height: 66.971vh;			/* 429/657px */
+	border: 2px solid gray; 
+	position: relative;
+}
+
+
+
+.albums {
+	border-bottom: 2px solid gray;
+	padding: 10px;
+	height: 12.9376vh;				/* 85/657px */	
+	min-height: 85px;		
+	overflow: auto;
+	li {
+		display: inline-block;
+		border: 1px solid gray;
+		padding: 5px 10px;
+		margin: 0 10px 10px 10px;
+		background-color: @body_background_clr;
+		cursor: pointer;
+		.HoverSelect;							/* mixin */
+	}
+}
+
+.photo_gallery {
+	h3 {
+		font-size: 2rem;				/* 32/16px */
+		margin: 10px 0 10px 0;
+	}
+}
+
+.thumbnail_photos {
+	margin-bottom: 5px;
+	div {
+		cursor: pointer;
+		overflow: auto;
+		height: 44.14vh;			/* 290/657px  */
+		@media screen and (max-width: @bigscreen) {
+			max-height: 68.4931vh;			/* 450/657px  */
+		}
+		@media screen and (max-width: @laptop) {
+			max-height: 53.2724vh;			/* 350/657px  */
+		}
+	}
+	img {
+		margin-bottom: 5px;
+		&:hover {
+			border: 3px solid gray;
+		}
+		&.clicked {
+			border: 3px solid black;
+		} 
+	}
+
+}
+
+.large_photo {
+	margin-bottom: 5px;
+	display: hide;
+	height: 39.5738vh;				/* 260/657px */
+	img {
+		height: 39.5738vh;			/* 260/657px */
+		max-height: 525px;
+
+	}
+}

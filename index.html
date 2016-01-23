@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>User Photos</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet/less" type="text/css" href="less/styles.less" />   
+
+        <script>
+		  less = {
+		    env: "development",
+		    async: false,
+		    fileAsync: false,
+		    poll: 1000,
+		    functions: {},
+		    dumpLineNumbers: "comments",
+		    relativeUrls: false,
+		    rootpath: ":/a.com/"
+		  };
+		</script>
+
+		<script src="js/less.min.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+    	<div id="main" class="container">
+    		<h1>User Photos App</h1>
+			<div class="row well photo_app">
+				<div class="users col-sm-4 col-xs-12">
+					<h2><i class="glyphicon glyphicon-user"></i> Users</h2>
+					<p class="users_error"> An error has occured. Please try again later </p>
+					<p class="users_loading"> <img src="pics/loading_spinner.gif" alt="loading"> </p>
+												<!-- Here are users loaded from the server -->
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<h2><i class="glyphicon glyphicon-picture"></i> Albums</h2>
+					<div class="album_content">
+						<p class="albums_error"> An error has occured. Please try again later </p>
+						<p class="albums_loading"> <img src="pics/loading_spinner.gif" alt="loading"> </p>
+						<div class="albums_wrapper">
+												<!-- Here are albums loaded from the server -->
+						</div>
+						<div class="photo_gallery clearfix">
+							<p class="photos_error"> An error has occured. Please try again later </p>
+							<p class="photos_loading"> <img src="pics/loading_spinner.gif" alt="loading"> </p>
+							<div class="thumbnail_photos col-sm-3 col-xs-12">
+												<!-- Here are thumbnail photos loaded from the server -->
+							</div>
+							<div class="large_photo col-sm-9 col-xs-12">
+								<h3></h3>
+								<img>
+												<!-- Here is large photo showed -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/application.js"></script>
+
+
+    </body>
+
+</html>
